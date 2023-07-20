@@ -1,0 +1,89 @@
+plugins {
+    id 'java'
+    id 'groovy'
+    id 'java-library'
+    id 'maven-publish'
+    id 'signing'
+}
+
+group = 'com.computinglaboratory'
+version = '0.1'
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // JUnit
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+
+    // Groovy and Spock
+    testImplementation 'org.apache.groovy:groovy-all:4.0.11'
+    testImplementation 'org.spockframework:spock-core:2.4-M1-groovy-4.0'
+
+    // Log4j
+    implementation 'org.apache.logging.log4j:log4j-api:2.12.4'
+    implementation 'org.apache.logging.log4j:log4j-core:2.12.4'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "OSSRH"
+            url = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
+            try {
+                credentials {
+                    username = "$mavenCentralUser"
+                    password = "$mavenCentralPassword"
+                }
+            } catch (Exception ex) {
+                credentials {
+                    username = " "
+                    password = " "
+                }
+            }
+        }
+    }
+    publications {
+
+        mavenJava(MavenPublication) {
+            artifactId = 'fileswatcher'
+            from components.java
+            pom {
+                name = 'Files Watcher'
+                description = 'Files watcher for JVM'
+                url = 'https://github.com/kamilszewc/fileswatcher'
+                licenses {
+                    license {
+                        name = 'The Apache License, Version 2.0'
+                        url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'kszewc'
+                        name = "Kamil Szewc"
+                        email = 'kamil.szewc@gmail.com'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/kamilszewc/fileswatcher.git'
+                    developerConnection = 'scm:git:https://github.com/kamilszewc/fileswatcher.git'
+                    url = 'https://github.com/kamilszewc/fileswatcher.git'
+                }
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.mavenJava
+    sign configurations.archives
+}
