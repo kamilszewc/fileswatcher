@@ -4,6 +4,7 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'signing'
+    id 'org.sonatype.gradle.plugins.scan' version '2.5.5'
 }
 
 group = 'com.computinglaboratory'
@@ -31,6 +32,15 @@ dependencies {
 
 test {
     useJUnitPlatform()
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+artifacts {
+    archives javadocJar, sourcesJar
 }
 
 publishing {
@@ -86,4 +96,10 @@ publishing {
 signing {
     sign publishing.publications.mavenJava
     sign configurations.archives
+}
+
+ossIndexAudit {
+    allConfigurations = false
+    useCache = false
+    outputFormat = 'DEFAULT'
 }
