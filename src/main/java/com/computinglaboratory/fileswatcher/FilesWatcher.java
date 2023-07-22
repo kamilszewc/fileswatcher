@@ -99,7 +99,7 @@ public class FilesWatcher {
 
     /**
      * Returns set of paths to files with recorded changes
-     * @return set of paths to files with recroded changes
+     * @return set of paths to files with recorded changes
      */
     public Set<Path> getChangedFilePaths() {
         return this.changedFileEvents.stream()
@@ -119,6 +119,13 @@ public class FilesWatcher {
                     .findFirst();
             event.ifPresent(changedFileEvents::remove);
         }
+    }
+
+    /**
+     * Remove all recoded ChangedFileEvents
+     */
+    public void removeAllChangedFileEvents() {
+        changedFileEvents.clear();
     }
 
 }
