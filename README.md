@@ -14,14 +14,14 @@ Usage with maven:
 <dependency>
     <groupId>com.computinglaboratory</groupId>
     <artifactId>fileswatcher</artifactId>
-    <version>0.1</version>
+    <version>0.2</version>
 </dependency>
 ```
 
 Usage with gradle:
 
 ```groovy
-implementation 'com.computinglaboratory:fileswatcher:0.1'
+implementation 'com.computinglaboratory:fileswatcher:0.2'
 ```
 
 ## Usage
