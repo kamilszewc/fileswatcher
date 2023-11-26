@@ -12,16 +12,16 @@ Usage with maven:
 
 ```xml
 <dependency>
-    <groupId>com.computinglaboratory</groupId>
+    <groupId>io.github.kamilszewc</groupId>
     <artifactId>fileswatcher</artifactId>
-    <version>0.2</version>
+    <version>0.3</version>
 </dependency>
 ```
 
 Usage with gradle:
 
 ```groovy
-implementation 'com.computinglaboratory:fileswatcher:0.2'
+implementation 'io.github.kamilszewc:fileswatcher:0.3'
 ```
 
 ## Usage

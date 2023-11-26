@@ -1,4 +1,4 @@
-package com.computinglaboratory.fileswatcher;
+package io.github.kamilszewc.fileswatcher;
 
 /**
  * Exception indicating that files watching is not supported

@@ -1,4 +1,4 @@
-package com.computinglaboratory.fileswatcher;
+package io.github.kamilszewc.fileswatcher;
 
 import java.nio.file.Path;
 import java.nio.file.WatchEvent;

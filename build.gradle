@@ -4,13 +4,17 @@ plugins {
     id 'java-library'
     id 'maven-publish'
     id 'signing'
-    id 'org.sonatype.gradle.plugins.scan' version '2.5.5'
+    id 'org.sonatype.gradle.plugins.scan' version '2.6.1'
 }
 
-group = 'com.computinglaboratory'
-version = '0.2'
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+group = 'io.github.kamilszewc'
+version = '0.3'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}
+
 
 repositories {
     mavenCentral()
@@ -22,7 +26,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
 
     // Groovy and Spock
-    testImplementation 'org.apache.groovy:groovy-all:4.0.11'
+    testImplementation 'org.apache.groovy:groovy-all:4.0.15'
     testImplementation 'org.spockframework:spock-core:2.4-M1-groovy-4.0'
 
     // Log4j
@@ -70,6 +74,14 @@ publishing {
                 name = 'Files Watcher'
                 description = 'Files watcher for JVM'
                 url = 'https://github.com/kamilszewc/fileswatcher'
+//                distributionManagement {
+//                    relocation {
+//                        groupId = 'io.github.kamilszewc'
+//                        artifactId = 'fileswatcher'
+//                        version = '0.3'
+//                        message = 'Project moved to io.github.kamilszewc:fileswatcher'
+//                    }
+//                }
                 licenses {
                     license {
                         name = 'The Apache License, Version 2.0'

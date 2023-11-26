@@ -1,4 +1,4 @@
-package com.computinglaboratory.fileswatcher
+package io.github.kamilszewc.fileswatcher
 
 import spock.lang.Specification
 import java.nio.file.*;
