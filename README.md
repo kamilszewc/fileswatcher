@@ -1,8 +1,8 @@
-# Files Watcher
+# Files Watcher (DISCONTINUED)
+**Development on the project stopped in 2023**
 
 ## General
-
-To be written
+This project aimed to streamline and simplify how Java applications detect changes to files and directories on the file system. We wanted to create a more robust and developer-friendly solution, abstracting away the complexities and inconsistencies inherent in Java's native file system watching mechanisms.
 
 ## Installation
 
@@ -24,6 +24,3 @@ Usage with gradle:
 implementation 'io.github.kamilszewc:fileswatcher:0.3'
 ```
 
-## Usage
-
-To be written
